@@ -13,7 +13,7 @@ RUN if [ "$USE_CHINA_MIRROR" = "true" ]; then \
         pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple; \
     fi && \
     pip install -U "huggingface_hub[cli]" && \
-    huggingface-cli download "BAAI/bge-m3" --repo-type model --local-dir /code --local-dir-use-symlinks False && ls -alh /code
+    huggingface-cli download "BAAI/bge-m3" --exclude "*.msgpack" "*.onnx" "*.bin" "*.ot" "*.safetensors" --repo-type model --local-dir /code --local-dir-use-symlinks False && ls -alh /code
 
 # FROM nvidia/cuda:12.3.2-runtime-ubuntu22.04
 # FROM nvidia/cuda:11.7.1-runtime-ubuntu22.04
