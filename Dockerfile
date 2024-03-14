@@ -16,7 +16,9 @@ RUN if [ "$USE_CHINA_MIRROR" = "true" ]; then \
     huggingface-cli download "BAAI/bge-m3" --repo-type model --local-dir /code --local-dir-use-symlinks False && ls -alh /code
 
 # FROM nvidia/cuda:12.3.2-runtime-ubuntu22.04
-FROM nvidia/cuda:11.7.1-runtime-ubuntu22.04
+# FROM nvidia/cuda:11.7.1-runtime-ubuntu22.04
+FROM python:3.11-slim
+
 
 ENV DEBIAN_FRONTEND=noninteractive
 
