@@ -1,4 +1,5 @@
 FROM ubuntu:22.04 as fetch
+# FROM nvidia/cuda:11.6.1-devel-ubuntu20.04
 
 ARG USE_CHINA_MIRROR=false
 RUN if [ "$USE_CHINA_MIRROR" = "true" ]; then \
@@ -17,7 +18,8 @@ RUN if [ "$USE_CHINA_MIRROR" = "true" ]; then \
 
 # FROM nvidia/cuda:12.3.2-runtime-ubuntu22.04
 # FROM nvidia/cuda:11.7.1-runtime-ubuntu22.04
-FROM python:3.11-slim
+FROM nvidia/cuda:11.6.1-devel-ubuntu20.04
+# FROM python:3.11-slim
 
 
 ENV DEBIAN_FRONTEND=noninteractive
