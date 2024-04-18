@@ -98,4 +98,7 @@ async def rerank(request: RerankerRequest):
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=3000)
 # curl -X POST -k -v http://127.0.0.1:3000/embedding -H "Content-Type: application/json" -d '{"sentences":["xx"], "type":"dense"}'
+curl -X POST -k -v http://127.0.0.1:3001/embedding -H "Content-Type: application/json" -d '{"sentences":["您好，我是robin"], "type":"dense"}'
 # curl -X POST -k -v http://127.0.0.1:3000/reranker -H "Content-Type: application/json" -d '{"target": "What is BGE M3?","sentences":["BGE M3 is an embedding model supporting dense retrieval, lexical matching and multi-vector interaction.", "xxx"], "type":"dense"}'
+curl -X POST -k -v http://127.0.0.1:3001/reranker -H "Content-Type: application/json" -d '{"target": "What is BGE M3?","sentences":["BGE M3 is an embedding model supporting dense retrieval, lexical matching and multi-vector interaction.", "xxx"], "type":"dense"}'
+curl -X POST -k -v http://127.0.0.1:3001/reranker -H "Content-Type: application/json" -d '{"target": "BGE M3是什么?","sentences":["BGE M3 是一个嵌入模型，支持密集检索、词法匹配和多向量交互", "傻逼"], "type":"dense"}'
