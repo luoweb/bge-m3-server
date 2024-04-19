@@ -1,5 +1,5 @@
-FROM ubuntu:22.04 as fetch
-# FROM nvidia/cuda:11.6.1-devel-ubuntu20.04
+# FROM ubuntu:22.04 as fetch
+FROM nvidia/cuda:11.6.1-devel-ubuntu20.04 as fetch
 
 ARG USE_CHINA_MIRROR=false
 RUN if [ "$USE_CHINA_MIRROR" = "true" ]; then \
