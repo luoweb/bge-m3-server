@@ -1,5 +1,6 @@
-# FROM ubuntu:22.04 as fetch
-FROM nvidia/cuda:11.6.1-devel-ubuntu20.04 as fetch
+FROM ubuntu:22.04 as fetch
+# FROM nvidia/cuda:11.6.1-devel-ubuntu20.04 as fetch
+# FROM sooim/cuda11.6.2-devel-ubuntu20.04-py3.10-torch2.0.1-torchvision0.15.2
 
 ARG USE_CHINA_MIRROR=false
 RUN if [ "$USE_CHINA_MIRROR" = "true" ]; then \
@@ -17,10 +18,8 @@ RUN if [ "$USE_CHINA_MIRROR" = "true" ]; then \
     huggingface-cli download "BAAI/bge-m3" --exclude "*.msgpack" "*.onnx" "*.bin" "*.ot" "*.safetensors" --repo-type model --local-dir /code --local-dir-use-symlinks False && ls -alh /code
 
 # FROM nvidia/cuda:12.3.2-runtime-ubuntu22.04
-# FROM nvidia/cuda:11.7.1-runtime-ubuntu22.04
-FROM nvidia/cuda:11.6.1-devel-ubuntu20.04
-# FROM python:3.11-slim
-
+# FROM nvidia/cuda:11.6.1-devel-ubuntu20.04
+FROM python:3.11-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
